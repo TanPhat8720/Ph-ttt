@@ -1,5 +1,6 @@
 package com.hutech.tests3.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class Menu {
     private String url;
     private boolean enabled;
     @ManyToOne
+    @JsonBackReference
     private Menu parent;
     @OneToMany(mappedBy = "parent")
     private List<Menu> children;

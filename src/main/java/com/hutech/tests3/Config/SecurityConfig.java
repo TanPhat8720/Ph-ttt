@@ -44,6 +44,7 @@ public class SecurityConfig {
                         .requestMatchers("/users").hasAuthority("USER")
                         .requestMatchers("/users/**").hasAuthority("MODIFIER")
                         .requestMatchers("/roles").hasAuthority("ADMIN")
+                        .requestMatchers("/restapi").permitAll()
                         .anyRequest().permitAll()
         ).formLogin(AbstractConfiguredSecurityBuilder
                 ->AbstractConfiguredSecurityBuilder.loginPage("/login")
